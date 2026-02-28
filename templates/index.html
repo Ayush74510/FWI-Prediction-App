@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FWI Prediction System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- Base Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh; 
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            padding: 20px;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 900px;
+            padding: 40px 20px;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        /* --- Hero Section --- */
+        .icon-header {
+            font-size: 50px;
+            color: #f59e0b;
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px rgba(245, 158, 11, 0.4);
+        }
+
+        h1 {
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 1.7;
+            margin-bottom: 40px;
+            color: #cbd5e1;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- Button --- */
+        a {
+            text-decoration: none;
+        }
+
+        .btn {
+            padding: 16px 40px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 50px;
+            border: none;
+            background: linear-gradient(135deg, #f59e0b, #ea580c);
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(234, 88, 12, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 25px rgba(234, 88, 12, 0.4);
+            background: linear-gradient(135deg, #fbbf24, #ea580c);
+        }
+
+        /* --- Features Grid (Glassmorphism) --- */
+        .features {
+            margin-top: 60px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjusted min-width for better 2x2 balancing */
+            gap: 25px;
+        }
+
+        .feature-box {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px 20px;
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-box:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 30px;
+            color: #38bdf8;
+            margin-bottom: 15px;
+        }
+
+        .feature-box h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .feature-box p {
+            font-size: 14px;
+            color: #94a3b8;
+            line-height: 1.5;
+        }
+
+        /* --- Animations --- */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <i class="fas fa-fire icon-header"></i>
+        <h1>Fire Weather Index Prediction</h1>
+
+        <p class="subtitle">
+            A Machine Learning powered application that predicts 
+            the Fire Weather Index (FWI) using environmental parameters 
+            such as temperature, humidity, wind speed, and rainfall.
+        </p>
+
+        <a href="{{ url_for('predict_datapoint') }}">
+            <button class="btn">
+                Start Prediction <i class="fas fa-arrow-right"></i>
+            </button>
+        </a>
+
+        <div class="features">
+            <div class="feature-box">
+                <i class="fas fa-project-diagram feature-icon"></i>
+                <h3>ML Model</h3>
+                <p>Trained using advanced regression techniques with robust preprocessing and scaling.</p>
+            </div>
+
+            <div class="feature-box">
+                <i class="fas fa-bolt feature-icon"></i>
+                <h3>Fast Predictions</h3>
+                <p>Experience real-time inference seamlessly integrated with a Flask backend.</p>
+            </div>
+
+            <div class="feature-box">
+                <i class="fas fa-globe-americas feature-icon"></i>
+                <h3>Real-world Use</h3>
+                <p>Designed to assist in early fire risk detection and continuous environmental monitoring.</p>
+            </div>
+
+            <div class="feature-box">
+                <i class="fas fa-code feature-icon"></i>
+                <h3>API Ready</h3>
+                <p>Easily integrate our predictive model into your own applications via robust REST endpoints.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
