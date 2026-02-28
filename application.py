@@ -1,8 +1,8 @@
 import pickle
 from flask import Flask,request,jsonify,render_template
 
-application = Flask(__name__)
-app = application
+app = Flask(__name__)
+
 
 ## Import Ridge regressor and standard scaler pickle
 with open('models/ridge.pkl', 'rb') as f:
